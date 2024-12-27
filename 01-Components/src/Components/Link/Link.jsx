@@ -4,7 +4,7 @@ const Link = ({ route }) => {
   const { path, name } = route;
   return (
     <div>
-      <li>
+      <li className="hover:text-accent">
         <a href={path}>{name}</a>
       </li>
     </div>
