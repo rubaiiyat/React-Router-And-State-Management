@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <ul className="">
+      <ul className="mt-10 text-accent text-xl">
         <Link className="px-10" to={"/"}>
           HOME
         </Link>
