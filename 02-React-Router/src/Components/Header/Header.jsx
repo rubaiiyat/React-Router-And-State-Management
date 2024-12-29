@@ -11,6 +11,9 @@ const Header = () => {
         <Link className="px-10" to={"/users"}>
           USERS
         </Link>
+        <Link className="px-10" to={"/posts"}>
+          POSTS
+        </Link>
         <Link className="px-10" to={"/about"}>
           ABOUT
         </Link>
