@@ -1,25 +1,60 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <div>
       <ul className="mt-10 text-accent text-xl">
-        <Link className="px-10" to={"/"}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold underline p-10"
+              : "text-accent p-10"
+          }
+        >
           HOME
-        </Link>
-        <Link className="px-10" to={"/users"}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold underline p-10"
+              : "text-accent p-10"
+          }
+          to={"/users"}
+        >
           USERS
-        </Link>
-        <Link className="px-10" to={"/posts"}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold underline p-10"
+              : "text-accent p-10"
+          }
+          to={"/posts"}
+        >
           POSTS
-        </Link>
-        <Link className="px-10" to={"/about"}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold underline p-10"
+              : "text-accent p-10"
+          }
+          to={"/about"}
+        >
           ABOUT
-        </Link>
-        <Link className="px-10" to={"/contact"}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold underline p-10"
+              : "text-accent p-10"
+          }
+          to={"/contact"}
+        >
           CONTACT
-        </Link>
+        </NavLink>
       </ul>
     </div>
   );
