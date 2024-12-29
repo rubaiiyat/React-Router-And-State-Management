@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa6";
 import { FcLike } from "react-icons/fc";
 import { BiSolidDislike } from "react-icons/bi";
@@ -11,8 +11,13 @@ const Post = ({ post }) => {
 
   const words = body.split(" ");
   const isLong = words.length > 20;
-
   const displayBody = showFull ? body : words.slice(0, 20).join(" ");
+
+  const navigate = useNavigate();
+  const handlePostDetails = () => {
+    navigate(`/posts/${id}`);
+  };
+
   return (
     <div>
       <div className="border-2 border-accent rounded-2xl p-5 m-5 text-start w-[500px] h-full flex flex-col gap-2">
@@ -40,9 +45,9 @@ const Post = ({ post }) => {
           </p>
         </div>
         <div className="flex-grow flex items-end">
-          <Link to={`/posts/${id}`} className="btn btn-accent w-full">
+          <button onClick={handlePostDetails} className="btn btn-accent w-full">
             Details
-          </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ const Users = () => {
     <div>
       <div className="flex gap-5 flex-wrap justify-center ">
         {users.map((user) => (
-          <User user={user}></User>
+          <User key={user.id} user={user}></User>
         ))}
       </div>
     </div>

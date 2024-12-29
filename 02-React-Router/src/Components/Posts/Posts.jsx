@@ -9,7 +9,7 @@ const Posts = () => {
     <div>
       <div className="flex gap-5 flex-wrap w-full justify-center ">
         {posts.map((post) => (
-          <Post post={post}></Post>
+          <Post key={post.id} post={post}></Post>
         ))}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa6";
 import { FcLike } from "react-icons/fc";
@@ -8,6 +8,11 @@ import { BiSolidDislike } from "react-icons/bi";
 const PostDetails = () => {
   const post = useLoaderData();
   const { id, title, body, tags, reactions, views } = post;
+
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
   return (
     <div>
       <div className="border-2 border-accent rounded-2xl p-5 m-5 text-start w-6/12 h-full flex flex-col gap-2 mx-auto">
@@ -35,9 +40,9 @@ const PostDetails = () => {
           </p>
         </div>
         <div className="flex-grow flex items-end">
-          <Link to={`/posts`} className="btn btn-accent w-full">
+          <button onClick={handleGoBack} className="btn btn-accent w-full">
             BACK
-          </Link>
+          </button>
         </div>
       </div>
     </div>
