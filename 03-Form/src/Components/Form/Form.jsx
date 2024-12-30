@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import ShowUser from "../ShowUser/ShowUser";
 
 const Form = () => {
+  const [users, setUsers] = useState([]);
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(e.target.name.value);
-    console.log(e.target.email.value);
-    console.log(e.target.password.value);
+    const userName = e.target.name.value;
+    const userEmail = e.target.email.value;
+    const userPassword = e.target.password.value;
+
+    const obj = {
+      name: userName,
+      email: userEmail,
+      password: userPassword,
+    };
+
+    const newuser = [...users, obj];
+    setUsers(newuser);
   };
   return (
     <div>
-      <form onSubmit={handleForm} className="w-96">
+      <form onSubmit={handleForm} method="" className="w-96">
         <input
           type="text"
           placeholder="Enter Your Name"
@@ -35,6 +46,10 @@ const Form = () => {
           SUBMIT
         </button>
       </form>
+
+      {users.map((user, index) => (
+        <ShowUser key={index} user={user}></ShowUser>
+      ))}
     </div>
   );
 };
