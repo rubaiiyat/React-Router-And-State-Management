@@ -1,9 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ShowUser from "../ShowUser/ShowUser";
 
 const Form = () => {
   const [users, setUsers] = useState([]);
+
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  useEffect(() => {
+    nameRef.current.focus();
+  }, []);
+
   const handleForm = (e) => {
+    e.preventDefault();
+
+    const obj = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+
+    const newUser = [...users, obj];
+    setUsers(newUser);
+  };
+  /* const handleForm = (e) => {
     e.preventDefault();
     const userName = e.target.name.value;
     const userEmail = e.target.email.value;
@@ -17,11 +38,12 @@ const Form = () => {
 
     const newuser = [...users, obj];
     setUsers(newuser);
-  };
+  }; */
   return (
     <div>
       <form onSubmit={handleForm} method="" className="w-96">
         <input
+          ref={nameRef}
           type="text"
           placeholder="Enter Your Name"
           name="name"
@@ -29,6 +51,7 @@ const Form = () => {
         />
         <br />
         <input
+          ref={emailRef}
           type="email"
           placeholder="Enter Your Email"
           name="email"
@@ -36,6 +59,7 @@ const Form = () => {
         />
         <br />
         <input
+          ref={passwordRef}
           type="password"
           placeholder="Enter Your Password"
           name="password"
