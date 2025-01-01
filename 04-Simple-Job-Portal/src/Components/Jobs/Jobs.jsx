@@ -21,9 +21,11 @@ const Jobs = () => {
 
       {/* Map all the jobs data */}
 
-      {jobs.map((job) => (
-        <Job key={job.id} job={job}></Job>
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-20 mt-5">
+        {jobs.map((job) => (
+          <Job key={job.id} job={job}></Job>
+        ))}
+      </div>
     </div>
   );
 };
