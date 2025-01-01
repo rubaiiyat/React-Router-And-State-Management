@@ -117,7 +117,7 @@ const JobDetails = () => {
             </div>
           </div>
           <div className="card-actions mt-5 ">
-            <Link className="block w-full">
+            <Link to={"/success"} className="block w-full">
               <button className="btn btn-accent w-full">Apply Now</button>
             </Link>
           </div>
