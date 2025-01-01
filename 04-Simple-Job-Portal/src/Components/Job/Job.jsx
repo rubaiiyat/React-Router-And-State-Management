@@ -1,8 +1,10 @@
 import React from "react";
 import { CiLocationOn, CiDollar } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
   const {
+    id,
     company_logo,
     job_title,
     company_name,
@@ -11,6 +13,7 @@ const Job = ({ job }) => {
     location,
     salary,
   } = job;
+
   return (
     <div>
       <div className="text-start border border-gray-700  bg-base-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 h-full ">
@@ -38,7 +41,9 @@ const Job = ({ job }) => {
             </h1>
           </div>
           <div className="card-actions">
-            <button className="btn btn-accent">View Details</button>
+            <Link to={`/job/${id}`}>
+              <button className="btn btn-accent">View Details</button>
+            </Link>
           </div>
         </div>
       </div>
