@@ -40,7 +40,7 @@ const AppliedJobs = () => {
       <h1>{jobApplieds.length}</h1>
 
       {jobApplieds.map((job) => (
-        <AppliedJob key={job.id} applied={job}></AppliedJob>
+        <AppliedJob key={job.id} job={job}></AppliedJob>
       ))}
     </div>
   );
