@@ -4,6 +4,7 @@ import { CiDollar, CiLocationOn } from "react-icons/ci";
 import { MdOutlineSubtitles, MdAccessTime } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
+import { saveJobApplication } from "../utility/StoredJob";
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
@@ -22,6 +23,10 @@ const JobDetails = () => {
     location,
     street,
   } = job;
+
+  const handleJobApply = () => {
+    saveJobApplication(parseInt(id));
+  };
   return (
     <div className="text-center  md:mx-32 px-4 mb-48">
       <h1 className="text-4xl md:text-6xl p-5 text-center text-white">
@@ -117,8 +122,13 @@ const JobDetails = () => {
             </div>
           </div>
           <div className="card-actions mt-5 ">
-            <Link to={"/success"} className="block w-full">
-              <button className="btn btn-accent w-full">Apply Now</button>
+            <Link className="block w-full">
+              <button
+                onClick={() => handleJobApply()}
+                className="btn btn-accent w-full"
+              >
+                Apply Now
+              </button>
             </Link>
           </div>
         </div>
