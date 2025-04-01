@@ -19,9 +19,16 @@ const BlogDetails = () => {
   }
   return (
     <div>
-      <div>
-        <h1>{blog.title}</h1>
-        <p>{blog.body}</p>
+      <div className="w-6/12 mx-auto ">
+        <h1 className="text-2xl mt-10 mb-3">{blog.title}</h1>
+        <p className="text-gray-400 mb-5">{blog.body}</p>
+
+        <div className="flex gap-2">
+          <p>Category: </p>
+          {blog.tags.map((tag) => (
+            <p className="text-blue-400">{tag}</p>
+          ))}
+        </div>
       </div>
     </div>
   );
